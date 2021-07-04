@@ -32,32 +32,16 @@ class _PhotoPageState extends State<PhotoPage> {
       body: Container(
         color: Colors.black,
         child: Dismissible(
-          key: Key(''),
+          key: UniqueKey(),
           background: Container(
             color: Colors.grey[900],
           ),
           direction: DismissDirection.vertical,
-          onDismissed: (direction) {
-            Navigator.pop(context);
-          },
+          onDismissed: (direction) => Navigator.pop(context),
           child: Center(
             child: Image.network(
               url,
               fit: BoxFit.fill,
-              loadingBuilder: (context, child, progress) => Text(
-                'Loading...',
-                style: TextStyle(
-                  color: Colors.white60,
-                  fontSize: 20,
-                ),
-              ),
-              errorBuilder: (context, error, stackTrace) => Text(
-                'Loading error.',
-                style: TextStyle(
-                  color: Colors.red[800],
-                  fontSize: 20,
-                ),
-              ),
             ),
           ),
         ),
